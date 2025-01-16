@@ -24,7 +24,7 @@ public class Main {
                     }case 3 -> exit = true;
                     default -> System.out.println("ไม่พบตัวเลือก");
                 }
-            }catch (InputMismatchException e){
+            }catch (InputMismatchException e){ 
                 System.out.println("กรุณากรอกตัวเลข");
                 sc.nextLine();
             }
