@@ -11,21 +11,21 @@ public class Main {
                 int input = sc.nextInt();
                 switch (input) {
                     case 1 -> {
-                        System.out.print("Enter number of rows: ");
+                        System.out.print("Enter number of rows (odd value only): ");
                         int numberDiamond = sc.nextInt();
                         Diamond diamond = new Diamond(numberDiamond);
                         diamond.PrintDiamond();
                     }
                     case 2 -> {
-                        System.out.print("Enter number of rows: ");
+                        System.out.print("Enter number of rows (even value only): ");
                         int numberButterfly = sc.nextInt();
                         Butterfly butterfly = new Butterfly(numberButterfly);
                         butterfly.printButterfly();
                     }case 3 -> exit = true;
-                    default -> System.out.println("ไม่พบตัวเลือก");
+                    default -> System.out.println("No options found");
                 }
             }catch (InputMismatchException e){ 
-                System.out.println("กรุณากรอกตัวเลข");
+                System.out.println("Please enter a number.");
                 sc.nextLine();
             }
 

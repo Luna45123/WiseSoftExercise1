@@ -9,7 +9,7 @@ public class Diamond {
         if ((number > 0 && number <= 50) && (number % 2 != 0)) {
             print(number);
         } else {
-            System.out.println("กรอกข้อมูลไม่ถูกต้องกรุณากรอกข้อมูลใหม่");
+            System.out.println("Input value is incorrect. Please enter it again.");
         }
     }
 
