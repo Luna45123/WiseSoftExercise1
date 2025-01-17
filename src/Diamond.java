@@ -1,47 +1,25 @@
-public class Diamond {
-    private final int number;
+public class Diamond extends PrintPattern {
 
-    Diamond(int number) {
-        this.number = number;
+    public Diamond(int number) {
+        super(number);
     }
 
-    public void PrintDiamond() {
-        if ((number > 0 && number <= 50) && (number % 2 != 0)) {
-            print(number);
+    @Override
+    public void printPattern() {
+        if (isValidInput() && number % 2 != 0) {
+            int mid = number / 2 + 1;
+            for (int row = 1; row <= mid; row++) {
+                printChars("  ", mid - row);
+                printChars("+ ", 2 * row - 1);
+                System.out.println();
+            }
+            for (int row = mid - 1; row >= 1; row--) {
+                printChars("  ", mid - row);
+                printChars("+ ", 2 * row - 1);
+                System.out.println();
+            }
         } else {
             System.out.println("Input value is incorrect. Please enter it again.");
         }
     }
-
-    private void print(int number) {
-        int i, row, spaces;
-        number = number / 2 + 1;
-        spaces = number - 1;
-        // Upper part
-        for (row = 1; row <= number; row++) {
-            for (i = 1; i <= spaces; i++) {
-                System.out.print("  ");
-            }
-            spaces--;
-            for (i = 1; i <= 2 * row - 1; i++) {
-                System.out.print("+ ");
-            }
-            System.out.println();
-        }
-
-        spaces = 1;
-
-        // Lower part
-        for (row = 1; row <= number - 1; row++) {
-            for (i = 1; i <= spaces; i++) {
-                System.out.print("  ");
-            }
-            spaces++;
-            for (i = 1; i <= 2 * (number - row) - 1; i++) {
-                System.out.print("+ ");
-            }
-            System.out.println();
-        }
-    }
-
 }
