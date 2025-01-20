@@ -22,7 +22,7 @@ public class Butterfly extends PrintPattern {
                 // Print Plus
                 printChars("+ ", numberOfPlus);
 
-                // Print spaces or central "-"
+                // Print spaces or "-"
                 if (i == number) {
                     printChars("- ", 1); // Add "-" in the middle
                 } else {

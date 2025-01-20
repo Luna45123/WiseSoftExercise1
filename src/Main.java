@@ -14,12 +14,12 @@ public class Main {
 
                 switch (choice) {
                     case 1 -> {
-                        System.out.print("Enter number of rows (odd value only): ");
+                        System.out.print("Enter number of rows (odd value only 1-50): ");
                         int numberDiamond = sc.nextInt();
                         pattern = new Diamond(numberDiamond);
                     }
                     case 2 -> {
-                        System.out.print("Enter number of rows (even value only): ");
+                        System.out.print("Enter number of rows (even value only 1-50): ");
                         int numberButterfly = sc.nextInt();
                         pattern = new Butterfly(numberButterfly);
                     }
