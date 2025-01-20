@@ -7,7 +7,7 @@ public abstract class PrintPattern implements ShapePattern {
 
     protected String printChars(String character, int count) {
         String temp;
-        pattern.append(String.valueOf(character).repeat(Math.max(0, count)));
+        pattern.append(String.valueOf(character).repeat(Math.max(0, count))); //ใช้ Math.max กันค่าติดลบ
         temp = pattern.toString();
         pattern.delete(0, pattern.length());
         return temp;
