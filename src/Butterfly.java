@@ -33,7 +33,7 @@ public class Butterfly extends PrintPattern {
 
                //Add space or dash in to line StringBuilder
                 if (i == number) {
-                    line.append(printChars(dash, 1)); // Add "-" in the middle
+                    line.append(printChars(dash, 1));
                 } else {
                     line.append(printChars(space, spaces));
                 }
