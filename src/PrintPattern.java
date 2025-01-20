@@ -1,4 +1,3 @@
-// AbstractPattern.java
 public abstract class PrintPattern implements ShapePattern {
     protected final int number;
 
