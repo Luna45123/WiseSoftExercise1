@@ -1,25 +1,42 @@
+import java.util.ArrayList;
+
 public class Diamond extends PrintPattern {
+    String character = "+ ";
+    String space = "  ";
+    StringBuilder diamond = new StringBuilder();
+
+    ArrayList<String> upperPart = new ArrayList<>();
 
     public Diamond(int number) {
         super(number);
     }
 
     @Override
-    public void printPattern() {
-        if (isValidInput() && number % 2 != 0) {
-            int mid = number / 2 + 1;
-            for (int row = 1; row <= mid; row++) {
-                printChars("  ", mid - row);
-                printChars("+ ", 2 * row - 1);
-                System.out.println();
+    public void printPattern(){
+        if (isValidInput() && !isEven()) {
+            int mid = (number / 2) + 1;
+            for (int row = 0; row < number; row++) {
+                if (row < mid) {
+                    StringBuilder line = new StringBuilder();
+                    line.append(printChars(space, (mid - row)-1));
+                    line.append(printChars(character, 2 * row + 1));
+                    upperPart.add(line.toString());
+                    diamond.append(line).append("\n");
+                } else {
+                    for (int i = upperPart.size() - 2; i >= 0; i--) {
+                        diamond.append(upperPart.get(i)).append("\n");
+                    }
+                    break;
+                }
+
             }
-            for (int row = mid - 1; row >= 1; row--) {
-                printChars("  ", mid - row);
-                printChars("+ ", 2 * row - 1);
-                System.out.println();
-            }
-        } else {
-            System.out.println("Input value is incorrect. Please enter it again.");
         }
+        print();
+    }
+
+
+    //ไว้เผื่อเอาไปทำอย่างอื่น
+    private void print(){
+        System.out.print(diamond.toString());
     }
 }
