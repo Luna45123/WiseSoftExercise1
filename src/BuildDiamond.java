@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
 public class BuildDiamond implements Builder {
-    private static final String CHARACTER = "+ ";
-    private static final String SPACE = "  ";
+
 
     @Override
     public String buildShape(int size) {
+        final String CHARACTER = "+ ";
+        final String SPACE = "  ";
         int half = size / 2;
         StringBuilder diamond = new StringBuilder();
         ArrayList<String> upperPart = new ArrayList<>();
