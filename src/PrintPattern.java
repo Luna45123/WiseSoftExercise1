@@ -1,6 +1,4 @@
 public abstract class PrintPattern implements ShapePattern {
-//    protected final int number;
-    StringBuilder pattern = new StringBuilder();
 
     protected boolean isEven(int size) {
         return size % 2 == 0;

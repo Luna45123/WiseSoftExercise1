@@ -15,26 +15,23 @@ public class Butterfly extends PrintPattern {
             StringBuilder butterfly = new StringBuilder();
             buildButterfly(size,butterfly);
             System.out.print(butterfly);
+        }else{
+            System.out.println("Invalid input");
         }
     }
 
     private void buildButterfly(int size,StringBuilder butterfly) {
-        int half = (size / 2)+1;
+        int half = size-1;
         ArrayList<String> upperWing = new ArrayList<>();
 
         // สร้างปีกบน
         for (int i = 0; i <= half; i++) {
-            String stars = character.repeat(i + 1);
+            String TextCharacter = character.repeat(i + 1);
             String spaces = space.repeat(((half - i) * 2)+1);
-            upperWing.add(stars + (i == half ? dash : spaces) + stars);
+            upperWing.add(TextCharacter + (i == half ? dash : spaces) + TextCharacter);
+            butterfly.append(upperWing.get(i)).append("\n");
         }
-
-        // รวมปีกบน
-        for (String line : upperWing) {
-            butterfly.append(line).append("\n");
-        }
-
-        // รวมปีกล่าง (ยกเว้นบรรทัดสุดท้ายของปีกบน)
+        // ใช้แถวบนย้อนกลับเพื่อสร้างแถวล่าง
         for (int i = upperWing.size() - 2; i >= 0; i--) {
             butterfly.append(upperWing.get(i)).append("\n");
         }
