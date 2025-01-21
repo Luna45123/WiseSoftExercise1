@@ -11,6 +11,6 @@ public class Butterfly extends PrintPattern {
 
     @Override
     public void printShape() {
-        System.out.println(printer.print(size));
+        System.out.println(printer.getText(size));
     }
 }

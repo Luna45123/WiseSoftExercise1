@@ -7,7 +7,7 @@ public class DiamondPrinter {
         this.builder = builder;
     }
 
-    public String print(int size) {
+    public String getText(int size) {
         if (validator.isValidInput(size) && !validator.isEven(size)) {
             return builder.buildShape(size);
         } else {
