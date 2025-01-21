@@ -1,57 +1,58 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Butterfly extends PrintPattern {
     String character = "+ ";
     String space = "  ";
     String dash = "- ";
-    StringBuilder butterfly = new StringBuilder();
-    ArrayList<String> upperPart = new ArrayList<>();
-    public Butterfly(int number) {
-        super(number);
+    int size;
+
+    public Butterfly(int size) {
+        this.size = size;
     }
 
     @Override
-    public void printPattern() {
-        if (isValidInput() && isEven()) {
-            int spaces = (2 * number) + 1;
-            int numberOfPlus = 0;
-
-            for (int i = 1; i <= 2 * number - 1; i++) {
-                StringBuilder line = new StringBuilder();
-                if (i <= number) {
-                    spaces -= 2;
-                    numberOfPlus++;
-                } else {
-                    for (int row = upperPart.size() - 2; row >= 0; row--) {
-                        butterfly.append(upperPart.get(row)).append("\n");
-                    }
-                    break;
-                }
-
-                //Add character in to line StringBuilder
-                line.append(printChars(character, numberOfPlus));
-
-               //Add space or dash in to line StringBuilder
-                if (i == number) {
-                    line.append(printChars(dash, 1));
-                } else {
-                    line.append(printChars(space, spaces));
-                }
-
-                //Add character in to line StringBuilder (นำตัว line StringBuilder ก่อนหน้าไปใส่ต่อในตัวหลัง )
-                line.append(line.toString().replace(dash, "").replace(space, ""));
-                upperPart.add(line.toString());
-                butterfly.append(line).append("\n");
-            }
-
-            print();
-
-        } else {
-            System.out.println("Input value is incorrect. Please enter it again.");
+    public void printShape() {
+        if (isValidInput(size) && isEven(size)) {
+            List<String> upperWing = buildUpperWing(size);
+            printButterfly(upperWing);
         }
     }
-    //ไว้เผื่อเอาไปทำอย่างอื่น
-    private void print(){
+
+
+    private List<String> buildUpperWing(int size) {
+        int half = size / 2;
+        List<String> upperWing = new ArrayList<>();
+
+        // สร้างปีกบน
+        for (int i = 0; i <= half; i++) {
+            String stars = character.repeat(i + 1);
+            String spaces = space.repeat(((half - i) * 2)+1);
+            if (i == half){
+                upperWing.add(stars + dash + stars);
+            }else {
+                upperWing.add(stars + spaces + stars);
+            }
+
+        }
+
+        return upperWing;
+    }
+
+    private void printButterfly(List<String> upperWing) {
+        StringBuilder butterfly = new StringBuilder();
+
+        // รวมปีกบน
+        for (String line : upperWing) {
+            butterfly.append(line).append("\n");
+        }
+
+        // รวมปีกล่าง (ยกเว้นบรรทัดสุดท้ายของปีกบน)
+        for (int i = upperWing.size() - 2; i >= 0; i--) {
+            butterfly.append(upperWing.get(i)).append("\n");
+        }
+
+        // พิมพ์ผีเสื้อทั้งหมดทีเดียว
         System.out.print(butterfly.toString());
     }
 }

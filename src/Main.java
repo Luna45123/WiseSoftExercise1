@@ -28,7 +28,7 @@ public class Main {
                 }
 
                 if (pattern != null) {
-                    pattern.printPattern();
+                    pattern.printShape();
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please enter a valid number.");

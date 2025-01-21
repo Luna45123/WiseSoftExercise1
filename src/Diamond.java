@@ -1,42 +1,28 @@
-import java.util.ArrayList;
-
-public class Diamond extends PrintPattern {
+public class Diamond extends PrintPattern{
     String character = "+ ";
     String space = "  ";
-    StringBuilder diamond = new StringBuilder();
-
-    ArrayList<String> upperPart = new ArrayList<>();
-
-    public Diamond(int number) {
-        super(number);
+    int size;
+    public Diamond(int size) {
+        this.size = size;
     }
-
     @Override
-    public void printPattern(){
-        if (isValidInput() && !isEven()) {
-            int mid = (number / 2) + 1;
-            for (int row = 0; row < number; row++) {
-                if (row < mid) {
-                    StringBuilder line = new StringBuilder();
-                    line.append(printChars(space, (mid - row)-1));
-                    line.append(printChars(character, 2 * row + 1));
-                    upperPart.add(line.toString());
-                    diamond.append(line).append("\n");
-                } else {
-                    for (int i = upperPart.size() - 2; i >= 0; i--) {
-                        diamond.append(upperPart.get(i)).append("\n");
-                    }
-                    break;
-                }
-
-            }
+    public void printShape() {
+        if (isValidInput(size) && !isEven(size)) {
+            StringBuilder diamond = new StringBuilder();
+            buildDiamond(size, diamond);
+            System.out.print(diamond.toString());
+        }else{
+            System.out.println("Invalid input");
         }
-        print();
     }
 
-
-    //ไว้เผื่อเอาไปทำอย่างอื่น
-    private void print(){
-        System.out.print(diamond.toString());
+    private void buildDiamond(int size, StringBuilder diamond) {
+        int half = size / 2;
+        for (int i = -half; i <= half; i++) {
+            int row = half - Math.abs(i);
+            diamond.append(space.repeat(half - row))
+                    .append(character.repeat(2 * row + 1))
+                    .append("\n");
+        }
     }
 }

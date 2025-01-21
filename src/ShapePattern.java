@@ -1,6 +1,6 @@
 
 
 public interface ShapePattern {
-    void printPattern();
-    boolean isValidInput();
+    void printShape();
+    boolean isValidInput(int size);
 }
