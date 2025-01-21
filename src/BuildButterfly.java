@@ -1,11 +1,19 @@
 import java.util.ArrayList;
 
 public class BuildButterfly implements Builder {
+    private final String CHARACTER;
+    private final String SPACE;
+    private final String DASH;
+
+    public BuildButterfly() {
+        CHARACTER = "+ ";
+        SPACE = "  ";
+        DASH = "- ";
+    }
+
     @Override
     public String buildShape(int size) {
-        final String CHARACTER = "+ ";
-        final String SPACE = "  ";
-        final String DASH = "- ";
+
         int half = size-1;
         ArrayList<String> upperWing = new ArrayList<>();
         StringBuilder butterfly = new StringBuilder();
