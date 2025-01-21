@@ -10,7 +10,7 @@ public class Diamond extends PrintPattern{
         if (isValidInput(size) && !isEven(size)) {
             StringBuilder diamond = new StringBuilder();
             buildDiamond(size, diamond);
-            System.out.print(diamond.toString());
+            System.out.print(diamond);
         }else{
             System.out.println("Invalid input");
         }
