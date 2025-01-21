@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
 
@@ -10,7 +11,7 @@ public class Main {
             System.out.print("Enter 1 to run printDiamond, 2 to run printButterfly, 3 to exit: ");
             try {
                 int choice = sc.nextInt();
-                ShapePattern pattern = null;
+                PrintPattern pattern = null;
 
                 switch (choice) {
                     case 1 -> {
