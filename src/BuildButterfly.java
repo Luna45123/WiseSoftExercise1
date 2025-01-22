@@ -1,15 +1,9 @@
 import java.util.ArrayList;
 
 public class BuildButterfly implements Builder {
-    private final String CHARACTER;
-    private final String SPACE;
-    private final String DASH;
-
-    public BuildButterfly() {
-        CHARACTER = "+ ";
-        SPACE = "  ";
-        DASH = "- ";
-    }
+    private static final String CHARACTER = "+ ";
+    private static final String SPACE = "  ";
+    private static final String DASH = "- ";
 
     @Override
     public String buildShape(int size) {

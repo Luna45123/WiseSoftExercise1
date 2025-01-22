@@ -1,13 +1,8 @@
 import java.util.ArrayList;
 
 public class BuildDiamond implements Builder {
-    private final String CHARACTER;
-    private final String SPACE;
-
-    public BuildDiamond() {
-        CHARACTER = "+ ";
-        SPACE = "  ";
-    }
+    private static final String CHARACTER = "+ ";
+    private static final String SPACE = "  ";
 
     @Override
     public String buildShape(int size) {
