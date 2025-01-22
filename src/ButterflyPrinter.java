@@ -1,15 +1,12 @@
-public class ButterflyPrinter {
-    private final Validator validator;
-    private final Builder builder;
-
+public class ButterflyPrinter extends Printer {
     public ButterflyPrinter(Validator validator, Builder builder) {
-        this.validator = validator;
-        this.builder = builder;
+        super(validator, builder);
     }
 
+    @Override
     public String getText(int size) {
-        if (validator.isValidInput(size) && validator.isEven(size)) {
-            return builder.buildShape(size);
+        if (getValidator().isValidInput(size) && getValidator().isEven(size)) {
+            return getBuilder().buildShape(size);
         } else {
             return "Invalid input";
         }

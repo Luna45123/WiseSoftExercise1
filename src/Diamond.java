@@ -1,6 +1,6 @@
 public class Diamond extends PrintPattern {
     private final int size;
-    private final DiamondPrinter printer;
+    private final Printer printer;
 
     public Diamond(int size) {
         this.size = size;

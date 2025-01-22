@@ -1,6 +1,6 @@
 public class Butterfly extends PrintPattern {
     private final int size;
-    private final ButterflyPrinter printer;
+    private final Printer printer;
 
     public Butterfly(int size) {
         this.size = size;
